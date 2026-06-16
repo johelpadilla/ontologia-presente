@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "title": "Hacia una ontología del presente en sistemas complejos: RECD, persistencia intensificada y la dinámica de la fragmentación",
+    "creators": [
+      {
+        "name": "Padilla-Villanueva, Johel",
+        "affiliation": "Universidad de Puerto Rico, Recinto de Ciencias Médicas",
+        "orcid": ""
+      }
+    ],
+    "description": "Versión base v0.1.12 (draft) del manuscrito académico.\n\nEste trabajo propone un marco ontológico de tres capas para comprender el presente en sistemas complejos, basado en el Reloj Extramental Discreto (RECD), la noción de persistencia intensificada (hiper-persistencia + trapping) y el papel regulador de la antisincronización como mecanismo de filtrado probabilístico bidireccional.\n\nIncluye:\n- Código Python completo de los experimentos de validación (mapa logístico acoplado r=3.8 con ruido gaussiano 0/5/10/15%, atractor de Lorenz, análisis de antisincronización como std(τ_s), RQA Config B y norma de Frobenius).\n- Fuentes completas del manuscrito LaTeX (14 páginas, con TOC y Referencias).\n- Historial de versiones de pulido (v0.1.0 a v0.1.12).\n\nRepositorio completo: https://github.com/johelpadilla/ontologia-presente\n\nEsta es una versión draft. El DOI final se actualizará en el registro cuando se publique la versión definitiva.",
+    "keywords": [
+      "RECD",
+      "Reloj Extramental Discreto",
+      "ontología del tiempo",
+      "sistemas complejos",
+      "persistencia intensificada",
+      "antisincronización",
+      "filtrado probabilístico",
+      "tres capas del presente",
+      "universalidad de Feigenbaum",
+      "atractor de Lorenz"
+    ],
+    "license": "cc-by-4.0",
+    "version": "0.1.12",
+    "language": "spa",
+    "related_identifiers": [
+      {
+        "relation": "isSupplementTo",
+        "identifier": "https://github.com/johelpadilla/ontologia-presente/releases/tag/v0.1.12",
+        "resource_type": "software"
+      },
+      {
+        "relation": "isIdenticalTo",
+        "identifier": "https://github.com/johelpadilla/ontologia-presente",
+        "resource_type": "software"
+      }
+    ],
+    "notes": "Draft base v0.1.12. El código y el manuscrito están versionados en GitHub. Para futuras versiones se usará el mismo registro de Zenodo.",
+    "communities": [],
+    "files": {
+      "enabled": false
+    }
+  }
+}

@@ -221,10 +221,10 @@ Esta versión base (v0.1.12) es la candidata para registro en Zenodo.
    - Completa los metadatos (título, autores, descripción, palabras clave, licencia CC-BY-4.0).
    - Publica (puedes dejarlo en "Draft" o "Unpublished" hasta revisión final).
 
-4. Una vez que tengas el DOI real de Zenodo, actualiza:
-   - Este `CITATION.cff` (en la versión base y en la raíz si aplica).
-   - El README de la versión.
-   - El archivo `CITATION.cff` principal del proyecto.
+4. DOI real obtenido: 10.5281/zenodo.20711393
+   - CITATION.cff actualizados con el DOI.
+   - Enlaces agregados en el manuscrito (abstract + sección de disponibilidad).
+   - El registro Zenodo ya está publicado desde el release v0.1.12.
 
 ### Cómo citar (placeholder hasta DOI real)
 

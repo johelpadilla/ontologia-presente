@@ -22,7 +22,7 @@ keywords:
   - "Leonardo Polo"
   - "Feigenbaum universality"
 version: "0.1.12"
-doi: "10.5281/zenodo.XXXXXXX"  # placeholder – will be assigned by Zenodo upon first release (see versions/v0.1.12 for the base manuscript)
+doi: "10.5281/zenodo.20711393"  # published on Zenodo from v0.1.12 base
 date-released: "2026-06-15"
 repository-code: "https://github.com/johelpadilla/ontologia-presente"
 license: "CC-BY-4.0"
@@ -33,7 +33,7 @@ preferred-citation:
       given-names: "Johel"
   title: "Hacia una ontología del presente en sistemas complejos: RECD, persistencia intensificada y la dinámica de la fragmentación"
   year: 2026
-  doi: "10.5281/zenodo.XXXXXXX"
-  url: "https://doi.org/10.5281/zenodo.XXXXXXX"
+  doi: "10.5281/zenodo.20711393"
+  url: "https://doi.org/10.5281/zenodo.20711393"
   publisher:
     name: "Zenodo"
