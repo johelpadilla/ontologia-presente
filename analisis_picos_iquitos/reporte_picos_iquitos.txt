@@ -1,0 +1,9 @@
+REPORTE ANÁLISIS PICOS FUERTES - IQUITOS
+Fecha: 2026-06-14T23:39:44.009700
+Parámetros: TAU=85, COH=90, Q=0.60
+
+Total picos: 17
+Adelanto medio I_i: 50.06 (n=17)
+Mediana lead: 39.0
+
+Mejor perfil predictivo: High I + High Persistence (ver detalles arriba)

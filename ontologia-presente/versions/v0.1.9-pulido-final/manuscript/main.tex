@@ -1,0 +1,118 @@
+\documentclass[11pt,a4paper]{article}
+
+% =============================================
+% PAQUETES
+% =============================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[hyphens]{url}
+\usepackage{breakurl}
+\usepackage{hyperref}
+
+\usetikzlibrary{shapes,arrows.meta,positioning,calc,fit,backgrounds}
+
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% Colores y estilos
+\definecolor{conceptcolor}{RGB}{0,70,130}
+\titleformat{\section}{\large\bfseries\color{conceptcolor}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{conceptcolor!80!black}}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\itshape\color{gray!70!black}}{}{0em}{}
+
+% Hiperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=conceptcolor,
+  urlcolor=conceptcolor!70!black,
+  citecolor=conceptcolor!80!black,
+  breaklinks=true
+}
+
+% Caja conceptual
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{conceptbox}[1][]{
+  colback=blue!4!white,
+  colframe=conceptcolor,
+  fonttitle=\bfseries,
+  title=#1,
+  boxrule=0.7pt,
+  arc=2pt,
+  breakable
+}
+
+\newtcolorbox{importantbox}{
+  colback=yellow!6!white,
+  colframe=orange!70!black,
+  fonttitle=\bfseries,
+  title=Resultado clave,
+  boxrule=0.6pt,
+  breakable
+}
+
+% =============================================
+% TÍTULO Y AUTOR
+% =============================================
+\title{\textbf{Hacia una ontología del presente en sistemas complejos}\\[0.3em]
+\large RECD, persistencia intensificada y la dinámica de la fragmentación}
+\author{Johel Padilla-Villanueva\\
+\small Universidad de Puerto Rico, Recinto de Ciencias Médicas}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+El presente en sistemas complejos se configura como un fenómeno \textbf{estratificado, fragmentado y jerárquico por capas}, en el que la transición de intensificaciones locales a reorganización estructural global está regulada por un efecto estructural de \textbf{filtrado probabilístico bidireccional} emergente del acoplamiento (denominado ocasionalmente, con valor heurístico secundario, «resistencia ascendente» y «resistencia descendente»).
+
+El marco distingue tres capas: el «presente local intensificado» (Capa 1), la «coherencia entre presentes locales» (Capa 2, de naturaleza primariamente relacional y transicional, que introduce la propiedad irreducible de alineación de escalas de persistencia $\tau_s$) y la «reorganización estructural del sistema» (Capa 3). La Capa 2 funciona como puente ontológico crítico: su reducción de fragmentación (baja antisincronización) es condición necesaria para que las intensificaciones locales (Capa 1) adquieran peso estructural (Capa 3). Las definiciones se anclan en validaciones empíricas con mapas logísticos acoplados ($r=3.8$), atractor de Lorenz y datos epidemiológicos. La discreción temporal detectable mediante RECD corresponde a transiciones entre niveles de integración de la persistencia.
+\end{abstract}
+
+\noindent\textbf{Palabras clave:} RECD, Reloj Extramental Discreto, Tau Sistémico, ontología del tiempo, sistemas complejos, persistencia intensificada, antisincronización, fragmentación, Leonardo Polo, universalidad de Feigenbaum.
+
+\newpage
+% TABLA DE CONTENIDOS — Siempre presente. Requiere secuencia completa de compilación
+% (pdflatex + bibtex + pdflatex + pdflatex) después de limpiar auxiliares.
+\tableofcontents
+\newpage
+
+% =============================================
+% SECCIONES (MODULARES)
+% =============================================
+\input{sections/introduccion}
+\input{sections/marco_recd}
+\input{sections/evidencia_empirica}
+\input{sections/capas_presente}
+\input{sections/resistencia}
+\input{sections/memoria_tiempo}
+\input{sections/discusion}
+\input{sections/conclusion}
+
+% =============================================
+% REFERENCIAS
+% =============================================
+% IMPORTANTE: Esta sección + addcontentsline + bibliografía deben ejecutarse
+% con la secuencia COMPLETA de compilación. Nunca olvides bibtex + 2 pdflatex finales.
+% \sloppy ayuda con overfulls en URLs/DOIs largos (ej. fractal dimension preprint).
+\section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
+\bibliographystyle{plainnat}
+\sloppy
+\bibliography{references}
+\normalfont
+
+\end{document}

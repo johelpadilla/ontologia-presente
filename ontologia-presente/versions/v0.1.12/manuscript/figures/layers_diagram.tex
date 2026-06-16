@@ -1,0 +1,51 @@
+% Diagrama conceptual de las tres capas del presente
+% Compilar independientemente o \input en el manuscrito
+\shorthandoff{><}%
+\begin{tikzpicture}[
+  node distance=0.9cm,
+  layer/.style={rectangle, draw=conceptcolor, 
+               minimum width=8.0cm, minimum height=1.2cm, 
+               align=center, font=\small, text width=7.7cm,
+               inner sep=5pt},
+  iarrow/.style={-{Stealth[length=2.5mm]}, thick, conceptcolor!75},
+  farrow/.style={-{Stealth[length=2.5mm]}, thick, dashed, conceptcolor!60},
+  flabel/.style={font=\footnotesize, text=gray!75!black},
+  alabel/.style={font=\footnotesize, text=gray!70!black, align=left}
+]
+% Title
+\node[font=\bfseries\small, text=conceptcolor] at (0, 5.1) {Diagrama conceptual de las tres capas del presente};
+
+% Capa 3 (top)
+\node[layer, fill=orange!12!white, draw=orange!70!black] (c3) at (0, 3.9) {
+  \textbf{Capa 3: Reorganización estructural del sistema}\\[0.08em]
+  \small Norma de Frobenius; picos hiperestructurales
+};
+
+% Capa 2
+\node[layer, fill=green!8!white, draw=green!55!black] (c2) at (0, 2.2) {
+  \textbf{Capa 2: Coherencia entre presentes locales}\\[0.08em]
+  \small Reducción de antisincronización $A(k)$
+};
+
+% Capa 1 (bottom)
+\node[layer, fill=blue!8!white, draw=conceptcolor] (c1) at (0, 0.5) {
+  \textbf{Capa 1: Presente local intensificado}\\[0.08em]
+  \small Hiper-persistencia + trapping (RQA Config B)
+};
+
+% Integration arrows (right side, upward solid)
+\draw[iarrow, ->] ([xshift=0.7cm]c1.east) -- ++(1.1,0) |- node[near start, flabel, right, yshift=0.2cm] {requiere $\downarrow A(k)$} ([xshift=0.7cm]c2.east);
+\draw[iarrow, ->] ([xshift=0.7cm]c2.east) -- ++(1.1,0) |- node[near start, flabel, right, yshift=0.2cm] {condición necesaria} ([xshift=0.7cm]c3.east);
+
+% Filtering arrows (left side, downward dashed)
+\draw[farrow, ->] ([xshift=-0.7cm]c2.west) -- ++(-1.1,0) |- node[near start, flabel, left, yshift=-0.05cm] {filtrado ascendente} ([xshift=-0.7cm]c1.west);
+\draw[farrow, ->] ([xshift=-0.7cm]c3.west) -- ++(-1.1,0) |- node[near start, flabel, left, yshift=-0.05cm] {filtrado descendente} ([xshift=-0.7cm]c2.west);
+
+% Side annotation (antisincronización)
+\node[alabel, anchor=east] at (-5.6, 2.0) {
+  \textbf{Antisincronización $A(k)$}\\[0.08em]
+  Alta $\rightarrow$ fragmentación\\[0.08em]
+  Baja $\rightarrow$ permeabilidad
+};
+\end{tikzpicture}
+\shorthandon{><}%

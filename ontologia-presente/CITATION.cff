@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this work or the ontological framework presented herein, please cite the following."
+title: "Hacia una ontología del presente en sistemas complejos: RECD, persistencia intensificada y la dinámica de la fragmentación"
+type: article
+authors:
+  - family-names: "Padilla-Villanueva"
+    given-names: "Johel"
+    email: "johel.padilla@upr.edu"
+    affiliation: "Universidad de Puerto Rico, Recinto de Ciencias Médicas"
+    orcid: "https://orcid.org/0000-0000-0000-0000"  # placeholder – replace with actual ORCID when available
+abstract: |
+  Este artículo presenta una síntesis ontológica del presente como fenómeno estratificado, fragmentado y jerárquico por capas, articulado en el marco del Reloj Extramental Discreto (RECD). Se definen con precisión la persistencia intensificada (hiper-persistencia + trapping estructural), la antisincronización como regulador de la fragmentación entre módulos, y tres capas principales del presente (local intensificado, coherencia relacional y reorganización estructural). La dinámica de resistencia bidireccional y la noción de memoria activa se integran con validaciones empíricas en mapas logísticos acoplados, el atractor de Lorenz y datos epidemiológicos. El tiempo extramental emerge como un tiempo articulado por transiciones entre niveles de densidad, adhesión y coherencia de la persistencia.
+keywords:
+  - "RECD"
+  - "Discrete Extramental Clock"
+  - "Systemic Tau"
+  - "ontology of time"
+  - "complex systems"
+  - "persistence"
+  - "antisynchronization"
+  - "fragmentation"
+  - "Leonardo Polo"
+  - "Feigenbaum universality"
+version: "0.1.12"
+doi: "10.5281/zenodo.XXXXXXX"  # placeholder – will be assigned by Zenodo upon first release (see versions/v0.1.12 for the base manuscript)
+date-released: "2026-06-15"
+repository-code: "https://github.com/johelpadilla/ontologia-presente"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Padilla-Villanueva"
+      given-names: "Johel"
+  title: "Hacia una ontología del presente en sistemas complejos: RECD, persistencia intensificada y la dinámica de la fragmentación"
+  year: 2026
+  doi: "10.5281/zenodo.XXXXXXX"
+  url: "https://doi.org/10.5281/zenodo.XXXXXXX"
+  publisher:
+    name: "Zenodo"

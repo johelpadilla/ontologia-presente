@@ -1,0 +1,42 @@
+\section{Fundamentos técnicos del marco RECD}
+
+\subsection{El Reloj Extramental Discreto (RECD)}
+
+El RECD postula que el tiempo extramental no es un continuo newtoniano ni una sucesión de instantes puntuales, sino una secuencia discreta de \textit{articulaciones ordinales} emergentes de la dinámica de persistencia de los sistemas \citep{padilla_recd_preprint_2025,padilla_tau_sistemic_2025}. Estas articulaciones no se definen por el contenido semántico de los eventos, sino por la estructura ordinal de sus trayectorias en el espacio de fases.
+
+La métrica central es el \textbf{Tau Sistémico} $\tau_s$, que cuantifica la persistencia local de una serie o componente en una ventana deslizante. Su valor se deriva de la entropía de permutación (Bandt-Pompe) invertida y escalada de modo que valores altos de $\tau_s$ indican mayor orden y persistencia en la estructura ordinal de la serie.
+
+\subsection{Constructos centrales}
+
+\textbf{Hiper-persistencia.} Un módulo (componente o región) se encuentra en hiper-persistencia cuando su valor actual de $\tau_s$ excede significativamente el promedio de una ventana reciente (típicamente 20 pasos), normalizado por la desviación estándar de dicha ventana. Formalmente:
+\[
+\text{hyper}_i(k) = \frac{\tau_s^i(k) - \mu_{\text{reciente}}}{\sigma_{\text{reciente}} + \epsilon} > \theta,
+\]
+donde $\theta = 1.0$ en la configuración de equilibrio utilizada.
+
+\textbf{Trapping estructural (RQA Config B).} Se evalúa mediante análisis de recurrencia cuantitativa aplicado a la serie de $\tau_s$. Dos métricas principales se emplean: Laminaridad (LAM) y Trapping Time (TT). La configuración B (equilibrio) utiliza los umbrales LAM $\geq 0.80$ y TT $\geq 3.4$, junto con aceleraciones de ambas métricas. Un pico se considera \textit{hiperestructural} cuando combina hiper-persistencia con al menos uno de los criterios de trapping estructural.
+
+\textbf{Intensidad compuesta $I$.} Para cada módulo $i$ en el instante $k$ se define
+\[
+I_i(k) = \text{Peso}_i(k) \times \rho_i(k) \times \Gamma_i(k),
+\]
+donde Peso corresponde a $\tau_s$, $\rho$ mide la conectividad espacial media con otros módulos y $\Gamma$ captura el exceso de persistencia respecto a la mediana reciente. Los picos estructurales se detectan cuando $I_i$ supera simultáneamente umbrales percentilares en sus tres componentes y se satisface el criterio de hiper-persistencia más trapping.
+
+\textbf{Antisincronización.} Se define como la desviación estándar de los valores de $\tau_s$ entre todos los módulos en un instante dado:
+\[
+A(k) = \sqrt{\frac{1}{n}\sum_{i=1}^n \bigl(\tau_s^i(k) - \bar{\tau}_s(k)\bigr)^2}.
+\]
+Valores altos de $A(k)$ indican que los módulos sostienen escalas de persistencia notablemente diferentes (mayor autonomía, mayor fragmentación). Valores bajos indican alineación de escalas (menor fragmentación, mayor permeabilidad entre presentes locales).
+
+\subsection{Parámetros consistentes}
+
+Todos los análisis empíricos que sustentan esta ontología se realizaron con la siguiente configuración invariante:
+\begin{itemize}
+    \item Ventana para $\tau_s$: 85 pasos.
+    \item Ventana de coherencia espacial: 90 pasos.
+    \item Umbral de hiper-persistencia: 1.0.
+    \item RQA Config B (LAM $\geq 0.80$, TT $\geq 3.4$, aceleraciones correspondientes).
+    \item Umbral de percentil para picos estructurales: 94.° percentil con distancia mínima de 35 pasos.
+\end{itemize}
+
+Esta constancia paramétrica garantiza que las diferencias observadas entre regímenes y niveles de ruido sean atribuibles a la dinámica del sistema y no a variaciones metodológicas arbitrarias \citep{padilla_rqa_integration_2026,padilla_feigenbaum_theorem_2026}.

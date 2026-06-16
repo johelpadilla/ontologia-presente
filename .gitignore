@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data and results (regenerable)
+data/*.csv
+data/*.zip
+resultados_*/
+resultados*/
+*.png
+*.pdf
+*.csv
+!ontologia-presente/**/main.pdf   # keep the paper PDF in the manuscript versions
+
+# LaTeX aux (inside versions we keep sources, but ignore build artifacts)
+**/*.aux
+**/*.log
+**/*.out
+**/*.toc
+**/*.bbl
+**/*.blg
+**/*.fdb_latexmk
+**/*.fls
+**/*.synctex.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Other
+*.pkl
+*.h5

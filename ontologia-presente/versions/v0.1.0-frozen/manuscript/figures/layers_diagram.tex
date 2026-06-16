@@ -1,0 +1,48 @@
+% Diagrama conceptual de las tres capas del presente
+% Compilar independientemente o \input en el manuscrito
+\begin{tikzpicture}[
+  node distance=1.8cm,
+  layer/.style={rectangle, draw=conceptcolor, fill=blue!8!white, 
+               minimum width=9cm, minimum height=1.6cm, 
+               align=center, font=\small},
+  arrow/.style={-{Stealth[length=2.5mm]}, thick, conceptcolor!70},
+  label/.style={font=\footnotesize, text=gray!80!black}
+]
+
+% Capa 3 (arriba)
+\node[layer, fill=orange!12!white, draw=orange!70!black] (c3) at (0, 5.5) {
+  \textbf{Capa 3: Reorganización estructural}\\[0.15em]
+  \small Norma de Frobenius en $C$, picos hiperestructurales con adelanto\\
+  \footnotesize Estructura global emergente del sistema
+};
+
+% Capa 2
+\node[layer, fill=green!8!white, draw=green!50!black] (c2) at (0, 3.2) {
+  \textbf{Capa 2: Coherencia entre presentes locales}\\[0.15em]
+  \small Reducción de antisincronización $A(k) = \mathrm{std}(\{\tau_s^i(k)\})$\\
+  \footnotesize Alineación de escalas de persistencia; disminución de fragmentación
+};
+
+% Capa 1
+\node[layer, fill=blue!8!white, draw=conceptcolor] (c1) at (0, 0.9) {
+  \textbf{Capa 1: Presente local intensificado}\\[0.15em]
+  \small Hiper-persistencia ($\tau_s$ > promedio reciente) + Trapping (RQA Config B)\\
+  \footnotesize Mayor firmeza y adhesión en módulo individual
+};
+
+% Flechas de integración (ascendentes)
+\draw[arrow, ->] (c1.north) -- node[right, label] {requiere $\downarrow$ antisinc.} (c2.south);
+\draw[arrow, ->] (c2.north) -- node[right, label] {condición necesaria} (c3.south);
+
+% Flechas de resistencia (descendentes, punteadas)
+\draw[arrow, dashed, conceptcolor!50, <-] ([xshift=-1.8cm]c2.south) -- node[left, label, xshift=-0.3cm] {resistencia ascendente} ([xshift=-1.8cm]c1.north);
+\draw[arrow, dashed, conceptcolor!50, <-] ([xshift=1.8cm]c3.south) -- node[right, label, xshift=0.3cm] {resistencia descendente} ([xshift=1.8cm]c2.north);
+
+% Anotación lateral
+\node[font=\footnotesize, text=gray!70!black, align=center] at (6.5, 3.2) {
+  Antisincronización $A(k)$\\[0.1em]
+  $\uparrow$ $\rightarrow$ mayor fragmentación\\
+  $\downarrow$ $\rightarrow$ mayor permeabilidad
+};
+
+\end{tikzpicture}

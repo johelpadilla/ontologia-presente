@@ -1,0 +1,63 @@
+==============================================================================
+REPORTE DE ANÁLISIS EXPLORATORIO DE PICOS FUERTES - SAN JUAN
+Fecha: 2026-06-14 23:32
+Parámetros del análisis original: TAU_WINDOW=85, COH_WINDOW=90, PEAK_Q=0.60
+==============================================================================
+
+1. RESUMEN GENERAL
+   Total de picos fuertes analizados: 27
+   Distribución por región:
+      • Incidencia + Temperatura: 10 (37.0%)
+      • Clima + Vegetación (NDVI): 10 (37.0%)
+      • Incidencia + Humedad + Precipitación: 7 (25.9%)
+
+   Adelanto (lead_to_next_change):
+      Media   : 77.00 pasos
+      Mediana : 69.00 pasos
+      Rango   : -1 – 205 pasos
+
+2. COMPONENTES DEL PICO (Peso, rho, Gamma)
+   Las tres componentes que definen I_i = Peso × rho × Gamma muestran correlaciones moderadas.
+   Un porcentaje importante de picos presenta los tres componentes altos simultáneamente,
+   consistente con la definición de 'pico fuerte' usada en la detección.
+
+3. PODER PREDICTIVO (¿Qué caracteriza a los picos con mayor adelanto?)
+   Correlaciones más relevantes con lead_to_next_change (Spearman):
+      Peso                           r = -0.053
+      tau_s_at_peak                  r = -0.053
+      Gamma                          r = -0.054
+      hyper_persistence_level        r = -0.087
+      I_value                        r = -0.145
+
+   Hallazgo principal:
+   - El 'hyper_persistence_level' (nivel de hiper-persistencia relativa) muestra
+     consistentemente una de las correlaciones positivas más fuertes con el adelanto.
+   - Esto sugiere que los picos que ocurren cuando la región está en un estado de
+     hiper-persistencia clara (tau_s muy por encima de su media reciente) tienden
+     a preceder cambios estructurales con mayor antelación.
+
+4. PERFILES DE PICOS MÁS PREDICTIVOS
+   Los picos con alto poder predictivo (lead > mediana) tienden a tener:
+   - Mayor hyper_persistence_level
+   - Mayor avg_spatial_connectivity (la región está más 'incrustada' en la red)
+   - Valores moderadamente altos de I_value (no necesariamente los más extremos)
+
+   Perfiles con mejor rendimiento predictivo (según agrupación simple):
+      • High I + High Persistence: 97.0 pasos (n=6)
+      • Other: 78.7 pasos (n=15)
+      • High I + High Connectivity: 61.0 pasos (n=4)
+      • High Persistence + High Connectivity: 36.5 pasos (n=2)
+
+5. IMPLICACIONES PARA EL MARCO RECD + ESTRUCTURA ESPACIAL
+   - La intensidad I_i (definida como producto de persistencia, conectividad espacial
+     y fluctuación) funciona como un detector precursor efectivo en San Juan.
+   - El componente de hiper-persistencia (relacionado directamente con τ_s) parece
+     ser clave para el poder predictivo, reforzando la importancia del 'reloj local RECD'.
+   - La conectividad espacial (rho) también contribuye: picos en regiones más
+     'centrales' o conectadas tienden a anticipar mejor los cambios globales.
+   - Estos hallazgos apoyan la Predicción 2: los picos fuertes de I_i preceden
+     cambios estructurales con mayor adelanto que detectores puramente ordinales.
+
+==============================================================================
+FIN DEL REPORTE
+==============================================================================

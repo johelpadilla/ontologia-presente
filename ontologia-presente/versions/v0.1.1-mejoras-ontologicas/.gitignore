@@ -1,0 +1,49 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.gz
+*~
+
+# Bibliography
+*.bcf
+*.run.xml
+
+# Python / data (if any supplementary scripts)
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.ipynb_checkpoints/
+*.npz
+*.png
+*.pdf
+!manuscript/figures/*.pdf
+!manuscript/figures/*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Zenodo / release
+*.zip
+draft-*.pdf
+
+# Temporary
+tmp/
+build/

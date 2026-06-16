@@ -1,0 +1,103 @@
+==================================================================================
+REPORTE COMPARATIVO FINAL - PICOS FUERTES REFINADOS
+Fecha: 2026-06-15 00:22
+Definición refinada aplicada: hyper_persistence_level > 1.0 + componentes altos
+Parámetros: TAU_WINDOW=85, COH_WINDOW=90, PEAK_Q=0.60 (idénticos)
+Fuente: picos_fuertes_refinados_san_juan.csv + picos_fuertes_refinados_iquitos.csv
+==================================================================================
+
+1. RESUMEN DE DATOS REFINADOS
+   Total de picos fuertes refinados analizados: 35
+   - San Juan: 23 picos (todos con hyper_persistence_level > 1.0)
+   - Iquitos : 12 picos (todos con hyper_persistence_level > 1.0)
+
+   Distribución por región (dentro de cada ciudad):
+     San Juan:
+       • Incidencia + Temperatura: 10
+       • Clima + Vegetación (NDVI): 8
+       • Incidencia + Humedad + Precipitación: 5
+     Iquitos:
+       • Incidencia + Humedad + Precipitación: 6
+       • Incidencia + Temperatura: 3
+       • Clima + Vegetación (NDVI): 3
+
+2. DISTRIBUCIÓN DEL ADELANTO (lead_to_next_change) - REFINADO
+   San Juan:
+      n total          : 23
+      n con lead >=0   : 19
+      Media (todos)    : 74.70 pasos
+      Media (válidos)  : 90.63 pasos
+      Mediana          : 64.00 pasos
+      Rango            : -1 – 205
+   Iquitos:
+      n total          : 12
+      n con lead >=0   : 8
+      Media (todos)    : 49.67 pasos
+      Media (válidos)  : 75.00 pasos
+      Mediana          : 45.00 pasos
+      Rango            : -1 – 117
+
+3. COMPONENTES EN LA MUESTRA REFINADA
+   San Juan: I=0.0532 | hyper=1.8779 | conn=0.5548 | Peso=3.0584
+   Iquitos: I=0.0201 | hyper=1.4733 | conn=0.3492 | Peso=3.0377
+
+4. PERFILES PREDICTIVOS EN PICOS REFINADOS
+   (Todos los picos ya cumplen hyper_persistence_level > 1.0 por la refinación)
+   Por tanto, 'High Persistence' es la base; I_value y conectividad espacial diferencian dentro de ese grupo.
+
+   Adelanto medio por perfil predictivo (solo leads válidos):
+     San Juan | High I + High Persistence          : 126.3 (n=3)
+     San Juan | Other                              : 114.9 (n=8)
+     San Juan | High Persistence + High Connectivity: 64.0 (n=4)
+     San Juan | High I + High Connectivity         : 42.0 (n=4)
+     Iquitos | High I + High Connectivity         : 84.0 (n=2)
+     Iquitos | Other                              : 78.6 (n=5)
+     Iquitos | High Persistence + High Connectivity: 39.0 (n=1)
+
+   Mejor perfil por ciudad (refinado):
+     San Juan: 'High I + High Persistence' (126.3 pasos, n=3)
+     Iquitos: 'High I + High Connectivity' (84.0 pasos, n=2)
+
+5. VARIABLES MÁS ASOCIADAS CON MAYOR ADELANTO (Spearman, refinado)
+   San Juan:
+     Gamma                          r=-0.021
+     Peso                           r=-0.042
+     tau_s_at_peak                  r=-0.042
+     hyper_persistence_level        r=-0.048
+   Iquitos:
+     Peso                           r=+0.057
+     tau_s_at_peak                  r=+0.057
+     hyper_persistence_level        r=-0.068
+     rho                            r=-0.150
+
+6. COMPARACIÓN DE RENDIMIENTO ENTRE CIUDADES (DEFINICIÓN REFINADA)
+   - San Juan sigue mostrando mayor número de picos refinados y adelanto medio ligeramente superior.
+   - Iquitos presenta menor volumen pero, con la condición de hiper-persistencia, logra un
+     adelanto medio competitivo y, en varios análisis previos, p-values más favorables.
+   - La refinación reduce el número de picos (~15-30% menos) pero mantiene o mejora el
+     poder predictivo en términos de adelanto medio, especialmente en Iquitos.
+
+7. IMPACTO DE LA REFINACIÓN (hyper_persistence_level > 1.0)
+   La condición explícita de hiper-persistencia actúa como un filtro de calidad:
+   - En San Juan: reduce de 27 a 23 picos; adelanto casi idéntico (90.57 → 90.63).
+   - En Iquitos: reduce de 17 a 12 picos; adelanto mejora sustancialmente (65.77 → 75.00).
+   - La hiper-persistencia parece ser un ingrediente especialmente valioso en Iquitos,
+     donde la mejora en lead medio y significación estadística fue clara.
+   - En general, la refinación produce un detector más selectivo y, en el caso de Iquitos,
+     más potente (mayor adelanto con menos falsos positivos de 'pico fuerte').
+
+8. RECOMENDACIONES HACIA ADELANTE
+   - La definición refinada (incluyendo hyper_persistence_level > 1.0) es preferible a la
+     versión original en ambos contextos, especialmente cuando se prioriza calidad sobre cantidad.
+   - Perfil más prometedor en la muestra refinada: 'High I + High Persistence' (combinación
+     de alta intensidad + hiper-persistencia ya exigida).
+   - Futuro trabajo: (a) barrido de parámetros con la condición de hiper-persistencia incluida,
+     (b) análisis de perfiles por región temática, (c) validación en otras ciudades del
+     dataset DengAI, (d) exploración de umbrales adaptativos de hiper-persistencia por ciudad.
+   - El marco RECD + estructura espacial se fortalece con esta refinación: los picos más
+     potentes son aquellos que combinan los tres componentes clásicos con un estado claro
+     de hiper-persistencia local.
+
+==================================================================================
+FIN DEL REPORTE COMPARATIVO FINAL (REFINADO)
+==================================================================================
