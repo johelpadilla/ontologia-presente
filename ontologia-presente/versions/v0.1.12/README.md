@@ -192,3 +192,51 @@ Esta carpeta implementa la ronda adicional de mejoras de rigor ontológico:
 La política de versiones se respeta estrictamente: ediciones solo dentro de subcarpetas nuevas; la congelada `v0.1.0-frozen/` permanece inmutable.
 
 *Compilado final: 14 páginas, junio 2026. Ver CHANGELOG.md de esta carpeta para el registro detallado de cambios.*
+
+---
+
+## Archivado en Zenodo y citación
+
+Esta versión base (v0.1.12) es la candidata para registro en Zenodo.
+
+### Pasos para publicar el draft en Zenodo:
+
+1. Asegúrate de que el tag `v0.1.12` esté en GitHub:
+   ```bash
+   git push origin v0.1.12
+   ```
+
+2. Ve a https://github.com/johelpadilla/ontologia-presente/releases/new
+   - Elige el tag "v0.1.12"
+   - Título: "v0.1.12 - Draft para Zenodo"
+   - Descripción: incluye el título del manuscrito y un enlace al PDF en la carpeta `versions/v0.1.12/manuscript/main.pdf`
+   - Publica el release (puedes marcarlo como "Draft" inicialmente).
+
+3. Ve a https://zenodo.org/ (inicia sesión con tu cuenta de GitHub).
+   - En tu perfil → GitHub.
+   - Busca el repositorio "ontologia-presente" y actívalo si no lo está.
+   - Haz clic en "New version" o "Create new upload".
+   - Selecciona el release v0.1.12 de GitHub.
+   - Zenodo generará automáticamente un DOI (10.5281/zenodo.XXXXXXX).
+   - Completa los metadatos (título, autores, descripción, palabras clave, licencia CC-BY-4.0).
+   - Publica (puedes dejarlo en "Draft" o "Unpublished" hasta revisión final).
+
+4. Una vez que tengas el DOI real de Zenodo, actualiza:
+   - Este `CITATION.cff` (en la versión base y en la raíz si aplica).
+   - El README de la versión.
+   - El archivo `CITATION.cff` principal del proyecto.
+
+### Cómo citar (placeholder hasta DOI real)
+
+```bibtex
+@article{padilla_ontologia_presente_2026,
+  author = {Padilla-Villanueva, Johel},
+  title = {Hacia una ontología del presente en sistemas complejos: RECD, persistencia intensificada y la dinámica de la fragmentación},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.XXXXXXX},
+  url = {https://doi.org/10.5281/zenodo.XXXXXXX}
+}
+```
+
+El archivo `CITATION.cff` en esta carpeta ya está preparado para ser actualizado con el DOI real.
