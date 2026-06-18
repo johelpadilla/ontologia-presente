@@ -47,3 +47,9 @@ draft-*.pdf
 # Temporary
 tmp/
 build/
+# Allow PDFs and figures for the final Zenodo preprint (recd_dengue_joint_episodes_2026)
+# These are the canonical deposition artifacts and must be tracked.
+!preprints/recd_dengue_joint_episodes_2026/*.pdf
+!preprints/recd_dengue_joint_episodes_2026/*.png
+!preprints/recd_dengue_joint_episodes_2026/figures/*.png
+!preprints/recd_dengue_joint_episodes_2026/figures/*.pdf

@@ -1,0 +1,26 @@
+
+RECOMENDACIONES CONCRETAS (Fase 8 → Fase 9 / Despliegue)
+=========================================================
+
+1. PESOS DEL CONFIDENCE SCORE RECOMENDADOS
+   - Configuración baseline robusta (W0): {'proba': 0.4, 'joint_score': 0.25, 'duration': 0.15, 'c1_consistency': 0.2}
+   - Configuración global ganadora en datos sintéticos (W3): {'proba': 0.35, 'joint_score': 0.2, 'duration': 0.25, 'c1_consistency': 0.2}
+   - Sugerencia: usar W3 como punto de partida y re-calibrar con datos reales de Puerto Rico.
+
+2. DIFERENCIACIÓN SAN JUAN vs IQUITOS
+   - San Juan: proceder con umbrales actuales y la mejor ponderación sintética.
+   - Iquitos: considerar reducir ligeramente el umbral de "Alto" (ej. 0.68) o aumentar peso de "c1_consistency" y "duration" porque la señal joint_score es inherentemente más débil.
+
+3. PRÓXIMOS PASOS PRIORITARIOS
+   a. Obtener series históricas extendidas de Puerto Rico (mínimo 15-20 años).
+   b. Generar más datos sintéticos con parámetros ajustados a los nuevos datos observados.
+   c. Implementar recalibración isotónica del Confidence Score una vez se tengan >50 episodios reales.
+   d. Diseñar piloto operativo en San Juan (mayor densidad de episodios).
+
+4. CONTRIBUCIÓN A PUBLICACIÓN
+   - El entregable MANUSCRIPT_STRUCTURE_FASES1-8.md está listo para ser usado como base.
+   - Enfatizar el uso de datos sintéticos como estrategia rigurosa cuando los datos reales de episodios Joint son escasos (caso Iquitos).
+   - Destacar que la agregación por episodio + categorización por confianza mejora la acciónabilidad sin sacrificar cobertura de Capa 3.
+
+5. RIESGO PRINCIPAL IDENTIFICADO
+   - La escasez estructural de episodios en Iquitos no es solo un problema de muestra: puede reflejar una dinámica ontológica diferente (C2 muy infrecuente). Esto debe ser tratado como hallazgo científico, no solo limitación técnica.
