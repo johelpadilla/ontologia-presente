@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-06-18T16:37:24.645811",
+  "v0.2_logistic": {
+    "overall_auc_J07": 0.512,
+    "high_auc_J07": 0.5351,
+    "low_auc_J07": 0.4888,
+    "mean_delta_pert": -0.0115
+  },
+  "v0.3_logistic_strong": {
+    "overall_auc_J07": 0.4737,
+    "high_auc_J07": 0.5306,
+    "low_auc_J07": 0.4189,
+    "mean_delta_pert": -0.0205
+  },
+  "v0.4_lorenz": {
+    "overall_auc_J07": 0.4763,
+    "high_auc_J07": 0.4854,
+    "low_auc_J07": 0.4664,
+    "mean_delta_pert": 0.0249,
+    "mean_delta_random": 0.0025,
+    "mean_delta_Y1": 0.1053,
+    "mean_delta_Y0": 0.056,
+    "n_realizations": 60
+  },
+  "key_observation": "Switching to coupled Lorenz produces the first clearly positive mean \u0394A after structural perturbations (+0.0249 vs random +0.0025). This addresses the main failure mode diagnosed in v0.2/v0.3. However overall AUC remains ~0.48 and J0.7 does not yet show clear superiority on the labels. Larger separation in post-JE recovery for Y=1 vs Y=0 is visible."
+}

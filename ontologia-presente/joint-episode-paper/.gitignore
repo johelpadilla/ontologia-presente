@@ -1,0 +1,71 @@
+# joint-episode-paper/
+# .gitignore tailored for a clean, professional GitHub presence
+# Parent .gitignore (in ontologia-presente/ and above) already covers
+# most LaTeX intermediates, __pycache__, IDE files, etc.
+
+# --- Clean root view: only the stable final PDF at top level ---
+# We keep the history of old drafts in git, but do not show them in the
+# current working tree / GitHub folder listing.
+Joint-Episode-Paper-Draft-*.pdf
+
+# Explicitly allow the stable release deliverable
+!Joint-Episode-Paper-v1.0.pdf
+
+# --- Versioned snapshots ---
+# Allow the canonical PDFs and key deliverables inside versions/
+# (full source history is valuable)
+!versions/**/Joint-Episode-Paper-*.pdf
+!versions/**/main.pdf
+!versions/**/CHANGELOG.md
+!versions/**/README.md
+
+# --- Reproducibility artifacts (Section 6 data) ---
+# Keep the exact result tables and summaries that back the paper
+!code/results/*.json
+!code/results/*.csv
+
+# Ignore heavy diagnostic figures if desired (optional — currently kept)
+# !code/results/figures/*.png
+
+# --- Never commit live build products at root ---
+manuscript/main.pdf
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.run.xml
+manuscript/*.bcf
+
+# Inside version snapshots we keep only the final main.pdf (see above)
+# but still ignore other build junk everywhere
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.log
+**/*.out
+**/*.run.xml
+**/*.bcf
+**/*.toc
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Temporary experiment outputs (if any future runs)
+code/results/tmp-*
+code/results/*_new_*
+
+# Notes and private material stay out
+notes/
+supplementary/
+references/

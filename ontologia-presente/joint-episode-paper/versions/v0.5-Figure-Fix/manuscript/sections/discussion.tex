@@ -1,0 +1,33 @@
+The synthetic validation experiments (Section 6) exposed several structural limitations that must inform any broader claims. The coupled logistic generator, despite extensive parameter exploration, proved fundamentally inadequate: post-perturbation shifts in antisynchrony were either negative or statistically indistinguishable from random controls, with rebound dynamics dominating any putative Layer-3 signature. Only after switching to the four-oscillator Lorenz system did a reliably positive separation appear ($\Delta A \approx +0.0249$ versus random). Even under this more favorable dynamics, and even when episodes were labeled by an oracle possessing ground-truth knowledge of the perturbation windows, the highest AUC achieved by the bias-reduced score $J_{0.7}$ remained modest (approximately 0.476). The Mann--Whitney test on this oracle labeling yielded $p \approx 0.71$, indicating that the score primarily separates the presence of L1--L2 joint structure from its absence rather than reliably anticipating reorganization.
+
+These outcomes are not failures of execution but diagnostic results. They indicate that, at least in the low-dimensional, low-$N$ regimes examined, the Joint Episode as currently defined functions more as a detector of ontologically coherent temporal units than as a strong predictor of Layer 3 transitions. The modest oracle ceiling further suggests that additional mechanisms---higher internal dimensionality, slow variables, inter-episode memory, or stronger scale coupling---may be required before the relational conditions embodied in a Joint Episode translate into detectable structural change with high probability. Any ontological interpretation must therefore remain cautious: the framework identifies necessary relational-temporal conditions; it does not yet demonstrate sufficiency for reorganization.
+
+A second limitation concerns the discrete, threshold-based character of the current definitions. The requirement that $A(k)$ remain below a calibrated $\theta_A$ for a minimum duration $D_{\min}$ and that $M(k)$ exceed $\theta_M$ at least once introduces sensitivity to parameter choice and to the precise quantile calibration adopted per realization. While the bias-reduction step embodied in $J_{0.7}$ demonstrably improves robustness across regimes, a fully continuous, non-thresholded characterization would be preferable both for theoretical clarity and for application to noisy empirical series.
+
+Finally, the present study is restricted to synthetic modular systems with small $N$ and known, externally imposed perturbations. Whether the same signatures and the same modest anticipatory power appear in high-dimensional, spatially extended, or empirically observed systems (physiological, ecological, or climatic) remains an open empirical question. The honest reading of the evidence to date is that the Joint Episode supplies a principled and operational temporal unit whose full implications for structural transitions will become visible only when tested on richer generators and on real multivariate data.
+
+The following open questions organize the most immediate directions for subsequent work:
+
+\begin{enumerate}
+    \item How robust are episode detection and the Joint Score to the choice of embedding parameters, RQA configuration (especially Config B), window length, and normalization conventions? Systematic ablation across these choices is required before the framework can be treated as stable.
+
+    \item Can a fully continuous, non-thresholded characterization of the Joint Episode be developed? Integrated measures of permeability (for example, time-averaged inverse antisynchrony) combined with continuous intensification functionals could eliminate the need for quantile-calibrated $\theta_A$ and $\theta_M$ while preserving the core L1--L2 conjunction.
+
+    \item What is the precise functional relationship between Joint Score (or its continuous analogue) and the probability of subsequent Layer-3 reorganization? The current results supply only a binary pre/post label; a graded, time-resolved mapping would allow stronger statements about enabling versus determining roles.
+
+    \item How does the framework generalize to systems with continuous spatial structure, higher-dimensional attractors, or many more interacting modules? The four-oscillator Lorenz testbed is minimal; qualitatively different statistics may appear once the number of degrees of freedom or the richness of the attractor increases.
+
+    \item What is the ontological status of ``empty'' Layer-2 intervals---sustained low $A(k)$ without accompanying Layer-1 intensification? Are these periods of mere permeability, failed kairoi, or a distinct category with its own dynamical consequences?
+
+    \item To what extent do the statistical signatures of Joint Episodes in real-world multivariate time series (physiological recordings, ecological networks, climate indices) resemble those observed in the Lorenz generator? Application to empirical data is essential to test whether the modest oracle ceiling is an artifact of low-dimensional synthetic systems.
+
+    \item Can the discrete-time formulation be extended to a rigorous continuous-time limit? A differential or measure-theoretic treatment of Systemic Tau, antisynchrony, and the Joint Episode would clarify the mathematical foundations and facilitate analytic work.
+
+    \item How should inter-episode memory and slow variables be incorporated? Many real systems exhibit long-range dependence across successive low-antisynchrony intervals; the current memoryless detection may miss cumulative effects that are decisive for reorganization.
+
+    \item What is the computational feasibility of online, streaming detection of Joint Episodes in high-frequency or high-channel data? Real-time applications (for example, neurophysiological monitoring or early-warning systems) will require efficient incremental algorithms and adaptive calibration.
+
+    \item Finally, how should the framework be related to existing approaches to critical transitions and early-warning signals? The Joint Episode may complement or subsume certain variance- or autocorrelation-based indicators; a systematic comparison on both synthetic and empirical benchmarks is needed.
+\end{enumerate}
+
+Addressing these questions will require a combination of theoretical refinement, larger-scale simulation, and careful empirical validation. The modest but honest results of the present synthetic validation provide both a foundation and a cautionary benchmark for that work.

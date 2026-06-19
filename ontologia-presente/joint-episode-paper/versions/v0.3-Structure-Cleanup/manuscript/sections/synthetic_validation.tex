@@ -1,0 +1,81 @@
+\subsection{Motivation and Scope}
+
+A central claim of the three-layer ontology developed in this work is that the \textbf{Joint Episode} constitutes a primitive ontological-temporal unit situated at the interface between local intensification of persistence (Layer 1) and relational coherence across scales (Layer 2). A natural and empirically testable implication of this claim is that such episodes should carry anticipatory information about subsequent structural reorganization (Layer 3).
+
+To evaluate this implication under controlled conditions, we constructed an iterative diagnostic pipeline on synthetic dynamical systems. The design deliberately separates two distinct questions: (i) whether controlled structural perturbations produce a detectable signature in the Layer-2 observable \(A(k)\), and (ii) to what extent the scalar scores \(J = D \cdot \overline{M}\) and \(J_{0.7} = D^{0.7} \cdot \overline{M}\) can discriminate episodes that precede genuine Layer-3 events from those that do not.
+
+Crucially, we treat the second question not as a prediction task to be optimized, but as a \textbf{diagnostic probe} of the alignment between the proposed temporal unit and the underlying ontological layers. All experiments were performed with identical detection parameters, post-episode windows, and evaluation metrics across labeling regimes, ensuring direct comparability.
+
+\subsection{Synthetic Generators and Experimental Design}
+
+Two minimal modular systems were examined: four coupled logistic maps (\(r = 3.8\)) and four diffusively coupled Lorenz oscillators. The former served as an initial testbed; the latter was adopted after systematic diagnostic failure of the logistic generator to produce a reliable Layer-3 signature.
+
+\textbf{Coupled logistic maps (v0.1--v0.3).} Structural perturbations were implemented as temporary, localized reductions of effective coupling (and optionally of the local growth parameter) applied to one or two modules. Despite aggressive schedules---including near-total decoupling over intervals of 70--110 steps---the mean post-perturbation shift in antisynchrony remained negative or statistically indistinguishable from matched random controls (\(\Delta A \approx -0.011\) to \(-0.020\)). Aligned trace analysis revealed that any post-episode rise in \(A(k)\) was dominated by generic rebound dynamics following low-antisynchrony intervals rather than by the injected structural events. This generator was therefore abandoned for the main validation.
+
+\textbf{Coupled Lorenz oscillators (v0.4 onward).} The primary generator was replaced by four Lorenz oscillators integrated via classical RK4 (\(\sigma = 10\), \(\rho = 28\), \(\beta = 8/3\)) with mean-field diffusive coupling on the \(x\)-component. Structural perturbations consisted of temporary local reductions of coupling strength (down to \(\varepsilon \approx 0.15\)) and, optionally, local scaling of \(\rho\) (factors 0.70--0.92) for intervals of 60--100 steps. Under this dynamics, the first reliably positive mean post-perturbation shift in antisynchrony was observed: \(\Delta A = +0.0249\) versus \(+0.0025\) for temporally matched random controls (aggregated over 60 realizations). All subsequent labeling and scoring experiments were performed exclusively on this generator while preserving identical meta-parameters (\(D_{\min} = 7\), post-window \([50, 150]\) in metric time, quantile-calibrated thresholds).
+
+\subsection{Joint Episode Detection and Scoring}
+
+Joint Episodes were detected exactly as defined in Section 4: maximal contiguous intervals during which \(A(k) < \theta_A\) for duration \(D \geq D_{\min}\) that also contain at least one excursion with \(M(k) \geq \theta_M\). Thresholds were calibrated per realization on the empirical quantiles of the observed series. Two scalar scores were attached to every detected episode:
+
+\[
+J = D \cdot \overline{M}, \qquad J_{0.7} = D^{0.7} \cdot \overline{M}.
+\]
+
+The exponent 0.7 was introduced to attenuate linear dependence on duration while retaining sensitivity to intensity. All downstream discrimination statistics were computed on both scores using identical episode sets.
+
+\subsection{Layer-3 Labeling Regimes}
+
+Two labeling regimes were contrasted on the Lorenz generator.
+
+\textbf{Enriched hybrid labeling (v0.5).} A scalar Layer-3 signal was constructed as a weighted combination of five features designed to capture both the magnitude and sustainability of post-episode reorganization:
+
+\[
+l_3\text{-signal} = 0.22 \cdot \text{frob}_x + 0.18 \cdot \text{frob}_\tau + 0.28 \cdot \operatorname{ReLU}(\Delta A) + 0.18 \cdot \text{persist} + 0.14 \cdot |\Delta \overline{\tau}|.
+\]
+
+The threshold was set at the 0.84 quantile of the same signal evaluated on 250 random candidate times (independent of detected episodes). This regime produced labels with significantly improved ontological grounding: episodes labeled \(Y=1\) exhibited markedly stronger and more sustained post-episode elevation of \(A(k)\) than those labeled \(Y=0\) (Mann--Whitney \(p = 0.0066\)).
+
+\textbf{Pure oracle labeling (v0.6, diagnostic upper bound).} A separate diagnostic mode was implemented that completely bypasses the hybrid signal. An episode receives label \(Y=1\) if and only if at least one ground-truth structural perturbation onset falls within the identical post-episode window \([t_e + 50, t_e + 150]\) (metric time). This mode supplies a theoretical ceiling: the highest AUC that \(J\) or \(J_{0.7}\) could possibly achieve under perfect knowledge of which episodes precede actual structural events. Oracle labeling is used exclusively for diagnostic purposes.
+
+\subsection{Results}
+
+Table~\ref{tab:auc_evolution} summarizes the evolution of discrimination performance across iterations. All Lorenz figures are based on 60 realizations (\(T = 2000\), 4 modules).
+
+\begin{table}[h]
+\centering
+\caption{Evolution of discrimination performance across synthetic-validation iterations. Spearman correlations are reported for the pooled episode population.}
+\label{tab:auc_evolution}
+\begin{tabular}{l l l c c c}
+\toprule
+Iteration & Generator & Labeling              & \multicolumn{1}{c}{AUC\(_J\)} & \multicolumn{1}{c}{AUC\(_{J_{0.7}}\)} & Spearman \(\rho\) (J / \(J_{0.7}\)) \\
+\midrule
+v0.1      & logistic  & basic hybrid          & 0.494     & 0.506             & 0.79 / 0.64                           \\
+v0.2      & logistic  & improved hybrid       & 0.501     & 0.512             & 0.78 / 0.63                           \\
+v0.3      & logistic  & strengthened          & 0.471     & 0.474             & 0.68 / 0.51                           \\
+v0.4      & Lorenz    & hybrid                & 0.503     & 0.476             & 0.75 / 0.61                           \\
+v0.5      & Lorenz    & enriched hybrid       & 0.481     & 0.458             & 0.75 / 0.61                           \\
+v0.6      & Lorenz    & oracle (ground truth) & 0.469     & \textbf{0.476}    & 0.75 / 0.61                           \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The transition from logistic to Lorenz (v0.3 \(\to\) v0.4) marks the first regime in which structural perturbations produce a reliably positive mean shift in antisynchrony. However, the decisive diagnostic result appears in v0.6. Even under \textbf{perfect ground-truth labeling} of episodes that precede actual structural perturbations, the Joint Scores achieve only modest discrimination (AUC\(_{J_{0.7}} \approx 0.476\)). Moreover, episodes labeled positive by the oracle tend to exhibit \textit{slightly lower} scores than negative episodes, and post-episode \(\Delta A\) is not significantly different between the two classes (Mann--Whitney \(p = 0.71\)).
+
+Importantly, the bias-reduction property of \(J_{0.7}\) remains fully intact across all labeling regimes.
+
+\subsection{Discussion and Ontological Implications}
+
+The synthetic validation yields three principal findings.
+
+First, the logistic generator proved fundamentally inadequate for testing the Layer-3 implication of the ontology. Even under aggressive structural perturbations, the observable \(A(k)\) failed to register a consistent reorganization signature. This limitation is informative: localized coupling changes are rapidly washed out in strongly chaotic, low-dimensional mean-field systems with sliding ordinal statistics.
+
+Second, the coupled Lorenz system succeeds in producing a detectable Layer-3 signature (\(\Delta A = +0.0249\)). The enriched hybrid labeling regime (v0.5) further succeeded in aligning binary labels \(Y\) with episodes followed by stronger and more sustained reorganization.
+
+Third---and most consequential---the oracle upper-bound experiment (v0.6) reveals that even with perfect knowledge of which Joint Episodes precede ground-truth structural events, the scores \(J\) and \(J_{0.7}\) possess only limited discriminative power. This indicates that the information captured by duration and mean intensity of high-\(M\) excursions within low-\(A(k)\) windows is primarily diagnostic of \textbf{Layer 1--2 coherence} rather than strongly anticipatory of Layer-3 reorganization, at least in minimal four-dimensional coupled systems.
+
+These findings support the Joint Episode as a well-defined ontological-temporal unit realizing coherent persistence across scales (Layers 1 and 2), while revealing that its capacity to anticipate structural transitions (Layer 3) is modest in low-dimensional settings. Stronger anticipatory power will likely require higher-dimensional or hierarchically structured generators, richer observables, or empirical systems with slower Layer-3 drivers.
+
+\subsection{Summary}
+
+Controlled synthetic experiments demonstrate that structural perturbations can induce detectable reorganization in \(A(k)\) when the generator permits it, that enriched labeling improves ontological grounding of Layer-3 labels, and that even under oracle labeling the proposed Joint Scores achieve only modest discrimination of episodes that precede reorganization. The bias-reduction property of \(J_{0.7}\) is robust across labeling regimes. These results delimit both the strengths and current limitations of the framework.

@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-06-18T17:17:11.295027",
+  "v0.5_enriched": {
+    "overall_mean_auc_J07": 0.45817199967369643,
+    "overall_mean_auc_J": 0.4814462872367284,
+    "high_J07": 0.446809961020319,
+    "low_J07": 0.46718327170913376,
+    "y1_rate": 0.16106604866743918,
+    "n_total_ep": 863,
+    "sep_J07": {
+      "mean_pos": 7.2883064800654385,
+      "mean_neg": 7.566290319062695,
+      "median_pos": 6.582616310455086,
+      "median_neg": 6.7825406374343995,
+      "mw_p": 0.8363225921922788
+    }
+  },
+  "v0.6_oracle": {
+    "overall_mean_auc_J07": 0.47643552286234364,
+    "overall_mean_auc_J": 0.4688494827644863,
+    "high_J07": 0.48081254724111866,
+    "low_J07": 0.4720584984835685,
+    "y1_rate": 0.5168018539976825,
+    "n_total_ep": 863,
+    "sep_J07": {
+      "mean_pos": 7.266504152283055,
+      "mean_neg": 7.7942636446336815,
+      "median_pos": 6.826972978758631,
+      "median_neg": 6.699409036823654,
+      "mw_p": 0.8916979079686077
+    }
+  },
+  "delta_overall_J07": 0.018263523188647213,
+  "interpretation_note": "Oracle uses pure structural pert proximity for Y (upper bound diagnostic). AUC lift is small; separation on J07 is weak/negative (pos mean slightly below neg)."
+}

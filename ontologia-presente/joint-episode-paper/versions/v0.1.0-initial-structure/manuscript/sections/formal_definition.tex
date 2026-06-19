@@ -1,0 +1,27 @@
+\section{Formal Definition of the Joint Episode}
+
+\subsection{Background: Systemic Tau and Antisynchrony}
+
+Systemic Tau $\tau_s(k)$ is a local measure of ordinal persistence derived from permutation entropy over sliding windows. Antisynchrony is defined as
+\[
+A(k) = \mathrm{std}\bigl(\{\tau_s^i(k)\}_{i=1}^N\bigr),
+\]
+where the standard deviation is taken across the $N$ modules (or regions) at time $k$. Low sustained values of $A(k)$ indicate alignment of persistence scales (Layer 2).
+
+\subsection{Layer 1 Intensification}
+
+Layer 1 is identified by excursions of the critical mass metric $M(k)$, which combines normalized hyper-persistence of $\tau_s$ with RQA-derived trapping time (or laminarity) under Config B parameters.
+
+\subsection{Definition of the Joint Episode}
+
+\begin{conceptbox}[Definition: Joint Episode]
+A \textbf{Joint Episode} is a maximal contiguous interval $[t_\mathrm{start}, t_\mathrm{end}]$ such that:
+\begin{enumerate}
+    \item $A(k) < \theta_A$ for all $k \in [t_\mathrm{start}, t_\mathrm{end}]$ and $t_\mathrm{end} - t_\mathrm{start} + 1 \ge D_{\min}$ (sustained Layer 2),
+    \item there exists at least one $k^* \in [t_\mathrm{start}, t_\mathrm{end}]$ with $M(k^*) \ge \theta_M$ (presence of Layer 1 intensification).
+\end{enumerate}
+The interval is maximal: it cannot be extended without violating either condition.
+\end{conceptbox}
+
+The thresholds $\theta_A$, $D_{\min}$, and $\theta_M$ are regime-calibrated (see Section 3).
+

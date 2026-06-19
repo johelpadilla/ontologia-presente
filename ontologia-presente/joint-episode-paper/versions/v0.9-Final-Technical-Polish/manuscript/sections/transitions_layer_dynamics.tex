@@ -1,0 +1,7 @@
+\subsection{Probabilistic Transition Model}
+
+The modeling framework posits the probability of a subsequent Layer 3 event as an increasing function $P(L3 \mid J)$ of the Joint Episode score, subject to stochastic modulation by system-specific factors. However, synthetic validation experiments demonstrate that any such elevation remains modest: even under oracle labeling that supplies perfect knowledge of which episodes are followed by injected structural perturbations, the discrimination achieved by $J$ or $J_{0.7}$ reaches only AUC $\approx 0.476$, statistically indistinguishable from chance. The Joint Score therefore primarily indexes the strength of the L1--L2 coherence itself.
+
+\subsection{Temporal Ordering}
+
+The conceptual sequence underlying the ontology is Layer 2 window formation (sustained low antisynchrony), followed by one or more Layer 1 intensification events inside that window, yielding a kairos with elevated (but not guaranteed) probability of Layer 3 reorganization. The synthetic results qualify this ordering: in the low-dimensional Lorenz testbed the post-episode reorganization signature ($\Delta A$) is detectable under some labeling regimes, yet the mapping from Joint Episode properties to actual structural change is weak. Deviations (Layer 1 bursts without sustained Layer 2, or low-$A(k)$ intervals without reorganization) are the norm rather than the exception in the systems examined to date.

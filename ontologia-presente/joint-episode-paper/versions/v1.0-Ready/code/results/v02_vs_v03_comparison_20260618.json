@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-18T16:23:12.269150",
+  "v0.2": {
+    "overall_auc_J07": 0.5119522977022978,
+    "high_auc_J07": 0.535090946090946,
+    "low_auc_J07": 0.4888136493136493,
+    "delta_pert_mean": -0.0115
+  },
+  "v0.3": {
+    "overall_auc_J07": 0.47370565318678526,
+    "high_auc_J07": 0.5306140618640618,
+    "low_auc_J07": 0.41890496334940786,
+    "delta_pert_mean": -0.020453100573196416,
+    "delta_random_mean": -0.008815195709088066,
+    "delta_y1_mean": 0.04537036700013838,
+    "delta_y0_mean": 0.03777998880137847,
+    "n_struct_in_sample": 94
+  },
+  "conclusion": "Aggressive pert strengthening + l3 enrichment did not yield positive consistent post-pert \u0394A nor AUC lift. Perts produce \u0394A ~ -0.02 (indistinguishable or worse than random). Y separation still driven by generic JE-end recovery."
+}

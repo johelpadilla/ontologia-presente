@@ -1,0 +1,92 @@
+\begin{tikzpicture}[
+  node distance=0.55cm and 0.4cm,
+  layer box/.style={
+    draw=conceptcolor!65, 
+    fill=conceptcolor!7, 
+    thick, 
+    rounded corners=2.5pt, 
+    minimum width=10.2cm, 
+    minimum height=1.05cm, 
+    align=center, 
+    font=\small\bfseries,
+    inner sep=4pt
+  },
+  sublabel/.style={font=\footnotesize, align=center},
+  je box/.style={
+    draw=orange!75!black, 
+    fill=orange!10, 
+    thick, 
+    rounded corners=3pt, 
+    minimum width=8.8cm, 
+    minimum height=0.85cm, 
+    align=center, 
+    font=\small\bfseries,
+    inner sep=3pt
+  },
+  arrow up/.style={-{Stealth[length=2.8mm]}, very thick, conceptcolor!75},
+  arrow down/.style={-{Stealth[length=2.8mm]}, very thick, gray!65, dashed},
+  time arrow/.style={-{Stealth}, thick, black!70}
+]
+
+% === Vertical stack: L3 (top) to L1 (bottom) ===
+\node[layer box] (L3) at (0, 3.6) {
+  Layer 3: Structural Reorganization \\
+  \sublabel{Global topological or dynamical reconfiguration of the system}
+};
+
+\node[layer box] (L2) at (0, 2.15) {
+  Layer 2: Relational Coherence / Permeability \\
+  \sublabel{Sustained low antisynchrony $A(k)$; alignment of persistence scales across modules}
+};
+
+\node[layer box] (L1) at (0, 0.7) {
+  Layer 1: Local Intensification of Persistence \\
+  \sublabel{Systemic Tau $\tau_s(k)$ peaks + critical-mass metric $M(k) \ge \theta_M$}
+};
+
+% === Joint Episode box (spans L1--L2) ===
+\node[je box] (JE) at (0, 1.42) {
+  \textbf{Joint Episode} (kairos) \\
+  \sublabel{maximal interval of low $A(k)$ containing Layer-1 intensification}
+};
+
+% === Time axis ===
+\draw[time arrow] (-5.8, -0.35) -- (5.8, -0.35) 
+  node[right, font=\footnotesize, black!75] {discrete time $k$};
+
+% Episode duration marker on time axis
+\draw[thick, orange!80!black, line width=1.1pt] (-3.6, -0.35) -- (2.4, -0.35);
+\node[font=\tiny, orange!85!black, below=1.5pt] at (-0.6, -0.35) {$\,[t_\mathrm{start},\, t_\mathrm{end}]\,$};
+
+% Vertical guides from JE to time (subtle)
+\draw[orange!40, thin, dashed] (-3.6, -0.1) -- (-3.6, -0.28);
+\draw[orange!40, thin, dashed] (2.4, -0.1) -- (2.4, -0.28);
+
+% === Bottom-up enabling arrows (left side) ===
+\draw[arrow up] ([xshift=-3.8cm]L1.west) -- ++(0,0.55) -| 
+  node[near start, left=1pt, font=\footnotesize, text=conceptcolor!80] {bottom-up enabling} 
+  ([xshift=-3.8cm]L2.west);
+\draw[arrow up] ([xshift=-4.3cm]L2.west) -- ++(0,0.55) -| 
+  ([xshift=-4.3cm]L3.west);
+
+% === Top-down constraint arrows (right side) ===
+\draw[arrow down] ([xshift=4.3cm]L3.east) -- ++(0,-0.55) -| 
+  node[near start, right=1pt, font=\footnotesize, text=gray!70] {top-down constraints} 
+  ([xshift=4.3cm]L2.east);
+\draw[arrow down] ([xshift=3.8cm]L2.east) -- ++(0,-0.55) -| 
+  ([xshift=3.8cm]L1.east);
+
+% === Small annotation labels inside layers ===
+\node[font=\tiny, conceptcolor!60, right=2pt] at (L1.east) {$\tau_s$, $M$};
+\node[font=\tiny, conceptcolor!60, right=2pt] at (L2.east) {$A(k)$};
+\node[font=\tiny, gray!55, left=2pt] at (L3.west) {reorg.};
+
+% === Legend / key (bottom right) ===
+\node[draw=gray!40, fill=white, rounded corners=1.5pt, 
+      font=\footnotesize, inner sep=2pt, anchor=south east] 
+  at (5.6, -0.9) { 
+  \textcolor{conceptcolor!75}{$\uparrow$} enabling \quad 
+  \textcolor{gray!65}{$\downarrow$} constraint 
+};
+
+\end{tikzpicture}

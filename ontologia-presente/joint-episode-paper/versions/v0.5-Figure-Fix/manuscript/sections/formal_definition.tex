@@ -1,0 +1,32 @@
+\subsection{Background: Systemic Tau and Antisynchrony}
+
+Systemic Tau $\tau_s(k)$ is a local measure of ordinal persistence derived from permutation entropy over sliding windows. Antisynchrony is defined as
+\[
+A(k) = \mathrm{std}\bigl(\{\tau_s^i(k)\}_{i=1}^N\bigr),
+\]
+where the standard deviation is taken across the $N$ modules (or regions) at time $k$. Low sustained values of $A(k)$ indicate alignment of persistence scales (Layer 2).
+
+\subsection{Layer 1 Intensification}
+
+Layer 1 is identified by excursions of the critical mass metric $M(k)$, which combines normalized hyper-persistence of $\tau_s$ with RQA-derived trapping time (or laminarity) under Config B parameters.
+
+\subsection{Definition of the Joint Episode}
+
+\begin{conceptbox}[Definition: Joint Episode]
+A \textbf{Joint Episode} is a maximal contiguous interval $[t_\mathrm{start}, t_\mathrm{end}]$ such that:
+\begin{enumerate}
+    \item $A(k) < \theta_A$ for all $k \in [t_\mathrm{start}, t_\mathrm{end}]$ and $t_\mathrm{end} - t_\mathrm{start} + 1 \ge D_{\min}$ (sustained Layer 2),
+    \item there exists at least one $k^* \in [t_\mathrm{start}, t_\mathrm{end}]$ with $M(k^*) \ge \theta_M$ (presence of Layer 1 intensification).
+\end{enumerate}
+The interval is maximal: it cannot be extended without violating either condition.
+\end{conceptbox}
+
+The thresholds $\theta_A$, $D_{\min}$, and $\theta_M$ are regime-calibrated (see Section 3).
+
+\begin{figure}[htbp]
+\centering
+\input{figures/three_layers_joint_episode.tikz}
+\caption{Three-layer ontology and the Joint Episode as \textit{kairos}. Layer 1 (bottom) represents local intensification of persistence through peaks in Systemic Tau $\tau_s(k)$ and the critical-mass metric $M(k)$. Layer 2 (middle) captures relational coherence and permeability via sustained low antisynchrony $A(k)$ across modules. The Joint Episode is defined as their joint realization: a maximal interval of low $A(k)$ that contains at least one Layer-1 intensification. Upward arrows (left) indicate bottom-up enabling from local persistence to scale coherence to structural possibility; downward arrows (right) indicate top-down constraints whereby Layer-3 organization restricts admissible L1--L2 configurations. The highlighted interval on the time axis marks the structured window of the present.}
+\label{fig:three_layers_je}
+\end{figure}
+

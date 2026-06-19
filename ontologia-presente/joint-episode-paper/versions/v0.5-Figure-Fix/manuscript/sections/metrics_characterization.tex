@@ -1,0 +1,16 @@
+\subsection{Primary Episode-Level Metrics}
+
+\begin{itemize}
+    \item \textbf{Duration} $D = t_\mathrm{end} - t_\mathrm{start} + 1$.
+    \item \textbf{Joint Score} $J = D \times \overline{M}$, where $\overline{M}$ is the mean of $M(k)$ over the episode (alternative: integral or max-$M$ variants).
+    \item \textbf{Intensity profile}: mean $M$, max $M$, fraction of episode above threshold.
+    \item \textbf{Layer 1 consistency}: number and clustering of high-$M$ excursions within the episode.
+\end{itemize}
+
+\subsection{Confidence Score}
+
+The Confidence Score is a weighted aggregate of normalized episode features (duration, Joint Score, Layer 1 consistency, proximity to Layer 3 indicators when available). It is calibrated on synthetic ensembles and yields categorical levels (e.g., Bajo / Medio / Alto).
+
+\subsection{Relation to Active Memory and Anti-synchronization}
+
+Joint Episodes quantify intervals during which active memory (persistence) can propagate because fragmentation (high $A(k)$) is suppressed.

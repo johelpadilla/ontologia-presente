@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-06-18T17:01:02.542985",
+  "v0.4_lorenz": {
+    "overall_auc_J07": 0.4763,
+    "high_auc_J07": 0.4854,
+    "low_auc_J07": 0.4664,
+    "overall_auc_J": 0.5028,
+    "mean_delta_pert": 0.0249,
+    "n_realizations": 60
+  },
+  "v0.5_lorenz_enriched": {
+    "overall_auc_J07": 0.4582,
+    "high_auc_J07": 0.4468,
+    "low_auc_J07": 0.4672,
+    "overall_auc_J": 0.4814,
+    "Y_rate": 0.161,
+    "n_realizations": 60
+  },
+  "delta_overall_auc_J07": -0.0181,
+  "key_observation": "Enriched L3 (frob_tau + persistence) on Lorenz improved grounding of Y=1 (in 10-rid diag: mean post-\u0394A for Y=1 +0.168 vs Y=0 +0.047, MW p=0.0066). However overall AUC_J07 dropped slightly (0.476 -> 0.458). J0.7 Spearman advantage preserved. Pert response \u0394A unchanged at +0.0249. Enriched signal makes labels more selective for strong A-recovery episodes but does not yet make J/J0.7 separate the classes better."
+}

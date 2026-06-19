@@ -1,0 +1,136 @@
+% =============================================================================
+% main.tex
+% The Joint Episode as an Ontological-Temporal Unit
+% Technical-mathematical paper on the Joint Episode
+% =============================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.0in,top=0.9in,bottom=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{breakurl}
+\setlength{\emergencystretch}{2.5em}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*,itemsep=0.2em,topsep=0.15em}
+\setlist[enumerate]{leftmargin=*,itemsep=0.2em,topsep=0.15em}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{conceptbox}[1][]{
+    colback=blue!3!white,
+    colframe=conceptcolor!80!black,
+    boxrule=0.6pt,
+    arc=2pt,
+    left=6pt,
+    right=6pt,
+    top=3pt,
+    bottom=3pt,
+    fonttitle=\bfseries\small,
+    title=#1,
+    breakable
+}
+\newtcolorbox{importantbox}{
+    colback=orange!4!white,
+    colframe=orange!70!black,
+    boxrule=0.6pt,
+    arc=2pt,
+    left=5pt,right=5pt,top=3pt,bottom=3pt
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows.meta,positioning,calc}
+
+% Project color (consistent with RECD / Ontología del Presente papers)
+\definecolor{conceptcolor}{RGB}{0,70,130}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black,
+    pdfauthor={Dr. Johel Padilla Villaunueva},
+    pdftitle={The Joint Episode as an Ontological-Temporal Unit: Mathematical Characterization, Structural Properties, and Transitions in Complex Systems},
+    pdfsubject={Joint Episode; ontological-temporal unit; complex systems; recurrence quantification; systemic tau},
+    pdfkeywords={joint episode; ontological layers; recurrence quantification analysis; systemic tau; antisynchrony; complex systems; structural transitions}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize The Joint Episode as an Ontological-Temporal Unit}
+\fancyhead[R]{}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{\textbf{The Joint Episode as an Ontological-Temporal Unit:}\\[0.25em]
+\large Mathematical Characterization, Structural Properties, and Transitions in Complex Systems}
+
+\author{
+    \textbf{Dr. Johel Padilla Villaunueva}\\[0.2em]
+    \small Ontología del Presente (Tau Sistémico) Research Program
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+We develop the Joint Episode as a mathematically precise and ontologically primitive temporal unit for the study of complex systems. Grounded in the three-layer framework of systemic persistence, a Joint Episode is defined as a maximal interval of sustained low antisynchrony $A(k)$ (Layer 2: scale coherence and permeability) that contains at least one significant excursion of the critical-mass metric $M$ (Layer 1: local intensification of Systemic Tau $\tau_s$ combined with RQA trapping). 
+
+We introduce the core quantitative descriptors — Joint Score $J = D \cdot \overline{M}$, duration $D$, intensity profile, and a multi-feature calibrated Confidence Score — and derive their structural relations to anti-synchronization, active memory, and layer-transition probabilities. Controlled experiments on coupled logistic maps and the Lorenz attractor demonstrate regime-dependent statistics of Joint Episodes. In enriched labeling conditions, episodes preceding detectable structural reorganization exhibit positive shifts in post-episode antisynchrony; however, even an oracle experiment with perfect ground-truth labels for Layer-3-proximal episodes yields only a modest AUC of approximately 0.476 for the best score. This indicates that the Joint Episode functions primarily as a detector of robust L1--L2 coherence rather than a strong predictor of structural reorganization in low-dimensional systems.
+
+Ontologically, the Joint Episode realizes a coherent \textit{kairos}: a structured window of the present in which intensified persistence acquires the relational conditions that raise the possibility of global reorganization. The framework thereby supplies both an operational detection algorithm and a non-reductive account of how local becoming participates in systemic transitions, subject to the empirical limits documented in the validation.
+
+\vspace{0.1em}
+\noindent\textbf{Keywords:} Joint Episode; ontological-temporal unit; Systemic Tau; recurrence quantification analysis; antisynchrony; complex systems; structural transitions; persistence; kairos.
+\end{abstract}
+
+\vspace{0.5em}
+
+\section{Introduction}
+\input{sections/introduccion}
+
+\section{Formal Definition of the Joint Episode}
+\input{sections/formal_definition}
+
+\section{Metrics and Characterization}
+\input{sections/metrics_characterization}
+
+\section{Structural Properties}
+\input{sections/structural_properties}
+
+\section{Transitions and Layer Dynamics}
+\input{sections/transitions_layer_dynamics}
+
+\section{Synthetic Validation}
+\input{sections/synthetic_validation}
+
+\section{Ontological Implications}
+\input{sections/ontological_implications}
+
+\section{Discussion and Open Questions}
+\input{sections/discussion}
+
+\section{Conclusions}
+\input{sections/conclusions}
+
+\nocite{*}
+\begingroup
+\sloppy
+\bibliographystyle{plainnat}
+\bibliography{references}
+\endgroup
+
+\end{document}

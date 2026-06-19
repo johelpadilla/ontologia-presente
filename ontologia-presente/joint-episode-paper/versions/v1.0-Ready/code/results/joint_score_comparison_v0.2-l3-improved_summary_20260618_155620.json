@@ -1,0 +1,30 @@
+{
+  "n_total_realizations": 60,
+  "by_regime": {
+    "high_perm": {
+      "n_realizations": 30,
+      "mean_n_episodes": 11.7,
+      "mean_auc_J": 0.5254550264550264,
+      "mean_auc_J07": 0.535090946090946,
+      "std_auc_J": 0.23164637767108864,
+      "std_auc_J07": 0.23629417249484672,
+      "mean_spearman_J": 0.7836485916922264,
+      "mean_spearman_J07": 0.6191554821236022,
+      "delta_auc_mean": 0.00963591963591965
+    },
+    "low_perm": {
+      "n_realizations": 30,
+      "mean_n_episodes": 11.4,
+      "mean_auc_J": 0.4763817663817663,
+      "mean_auc_J07": 0.4888136493136493,
+      "std_auc_J": 0.21402756374115922,
+      "std_auc_J07": 0.2227313163098613,
+      "mean_spearman_J": 0.7797438925637383,
+      "mean_spearman_J07": 0.6320656228979229,
+      "delta_auc_mean": 0.012431882931882932
+    }
+  },
+  "overall_mean_auc_J": 0.5009183964183964,
+  "overall_mean_auc_J07": 0.5119522977022978,
+  "overall_delta_auc": 0.011033901283901288
+}
